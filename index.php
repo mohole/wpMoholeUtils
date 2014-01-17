@@ -12,7 +12,7 @@
 
 
 /* Login personalizzato */
-function mioLogoLogin(){
+function MH_login(){
 	?>
 	
 	<style type="text/css">
@@ -27,8 +27,35 @@ function mioLogoLogin(){
 	<?php
 }
 
+/* Modifica nomi ruoli predefiniti */
+function MH_cambiaNomeRuoli() {
+    global $wp_roles;
+
+    if ( ! isset( $wp_roles ) )
+        $wp_roles = new WP_Roles();
+
+    // Elenco ruoli standard - togliere il commento per visualizzarli nella backend
+    /*$roles = $wp_roles->get_names();
+    print_r($roles);*/
+
+    // Modifica nomi ruoli "author", "contributor" or "subscriber"...
+    $wp_roles->roles['editor']['name'] = 'Staff';
+    $wp_roles->role_names['editor'] = 'Staff';
+
+    $wp_roles->roles['author']['name'] = 'Docente';
+    $wp_roles->role_names['author'] = 'Docente';
+
+    $wp_roles->roles['contributor']['name'] = 'Collaboratore';
+    $wp_roles->role_names['contributor'] = 'Collaboratore';
+
+    $wp_roles->roles['subscriber']['name'] = 'Allievo';
+    $wp_roles->role_names['subscriber'] = 'Allievo'; 
+       
+}
+
 
 /* Azioni */
-add_action('login_head', 'mioLogoLogin');
+add_action('login_head', 'MH_login');
+add_action('init', 'MH_cambiaNomeRuoli');
 
 ?>
