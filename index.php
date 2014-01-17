@@ -11,6 +11,12 @@
  */
 
 
+/* Redirect al login */
+function MH_accesso(){
+    $_url = get_bloginfo('url') . '/gestionale2/new/';
+    return $_url;
+}
+
 /* Login personalizzato */
 function MH_login(){
 	?>
@@ -53,9 +59,33 @@ function MH_cambiaNomeRuoli() {
        
 }
 
+/* Aggiungo un link nella toolbar per tutti */
+function MH_adminbar($wp_admin_bar) {
+    $args = array(
+        'id' => 'gestionale',
+        'title' => 'Gestionale', 
+        'href' => get_bloginfo('url').'/gestionale/new/',
+        'meta' => array()
+    );
+    $wp_admin_bar->add_node($args);
+
+    // Link al gestionale sviluppo solo per amministratori
+    if(current_user_can( 'manage_options' )){
+        $args = array(
+            'id' => 'gestionale2',
+            'title' => 'Gestionale 2', 
+            'href' => get_bloginfo('url').'/gestionale2/new/',
+            'meta' => array()
+        );
+        $wp_admin_bar->add_node($args);
+    }
+}
+
 
 /* Azioni */
 add_action('login_head', 'MH_login');
 add_action('init', 'MH_cambiaNomeRuoli');
+//add_action('login_redirect', 'MH_accesso');
+add_action('admin_bar_menu', 'MH_adminbar', 999);
 
 ?>
