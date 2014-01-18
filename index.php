@@ -4,7 +4,7 @@
  * Plugin Name: Utility Mohole
  * Plugin URI: https://github.com/mohole/wpMoholeUtils
  * Description: Alcune utility per i siti Mohole (Schermata login customizzata, shortcodes, funzioni varie, ecc..)
- * Version: 0.1
+ * Version: 0.2
  * Author: Salvatore Laisa
  * Author URI: http://www.salvatorelaisa.net
  * License: none
@@ -87,5 +87,17 @@ add_action('login_head', 'MH_login');
 add_action('init', 'MH_cambiaNomeRuoli');
 //add_action('login_redirect', 'MH_accesso');
 add_action('admin_bar_menu', 'MH_adminbar', 999);
+
+
+/* INCLUSIONI */
+include('shortcodes.php');
+
+/* FUNZIONI "LIBERE" */
+
+// Funzione per il calcolo dell'IVA (ora 22%)
+function aggiungiIva($valore){
+    $conIva = $valore + (($valore/100)*22);
+    echo($conIva);
+}
 
 ?>
