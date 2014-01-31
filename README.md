@@ -10,10 +10,11 @@ wpMoholeUtils
 * Redirect nel gestionale al login
 * Link al gestionale nella barra di admin
 * Shortcodes
+* Link alla guida (questa pagina) nella barra di admin
 
 ***
 
-#### Rinominazione ruoli
+### Rinominazione ruoli
 * Editore -> Staff
 * Autore -> Docente
 * Contributore -> Collaboratore
@@ -21,6 +22,12 @@ wpMoholeUtils
 
 Amministratore rimane invariato.
 
-#### Shortcodes
+### Shortcodes
+	[persona] testo [/persona]	
+bla bla bla
+
+	[mappa altezza="450" larghezza="900"]
+bla bla bla
+
 
 ### Logo login customizzato
