@@ -91,6 +91,7 @@ add_action('admin_bar_menu', 'MH_adminbar', 999);
 
 /* INCLUSIONI */
 include('shortcodes.php');
+include('widget-schede.php');
 
 /* FUNZIONI "LIBERE" */
 
