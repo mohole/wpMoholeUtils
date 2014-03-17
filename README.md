@@ -7,6 +7,7 @@ wpMoholeUtils
 
 * Logo login customizzato
 * Rinominazione ruoli WordPress
+* Schede (sia widget che shortcode)
 * Redirect nel gestionale al login
 * Link al gestionale nella barra di admin
 * Shortcodes
@@ -27,8 +28,10 @@ Amministratore rimane invariato.
 crea un div con le classi "persona" e "well" (questa è una classe di Bottstrap che crea un piccolo contenitore grigio intorno all'elemento).
 
 	[mappa altezza="450" larghezza="900"]
-bla bla bla
+crea un embed di Google Maps (vecchia versione) già "puntato" su Mohole.
 
+	[scheda larghezza="mezzo"] testo [/scheda]
+crea la marcatura per una scheda, si può definire la larghezza usando un attributo con uno di questi valori: "tutto", "mezzo" (predefinito), "terzo" e "quarto".
 
 ### Logo login customizzato
 Su attivazione il plugin utilizza il file "img/moholeLogin.svg" come logo per la schermata di login rimpiazzando l'originale.
